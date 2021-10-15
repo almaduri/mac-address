@@ -114,14 +114,13 @@ app.get('/', (req, res) => {
 
       if (macA < macB) {
         return -1;
-      }
-      if (macA > macB) {
+      } else if (macA > macB) {
         return 1;
       }
 
       return 0;
     })
-    // res.render("list", { macAddresses: foundItems });
+
     res.render("list", { macAddresses: sortedItems });
   })
 })
