@@ -1,7 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const _ = require('lodash')
-const { set } = require('lodash')
 require('dotenv').config()
 
 const app = express()
