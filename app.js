@@ -106,7 +106,23 @@ app.get('/', (req, res) => {
         }
       })
     }
-    res.render("list", { macAddresses: foundItems });
+
+    const sortedItems = [...foundItems].sort((a, b) => {
+
+      const macA = a.mac_address.toUpperCase(); // ignore upper and lowercase
+      const macB = b.mac_address.toUpperCase(); // ignore upper and lowercase
+
+      if (macA < macB) {
+        return -1;
+      }
+      if (macA > macB) {
+        return 1;
+      }
+
+      return 0;
+    })
+    // res.render("list", { macAddresses: foundItems });
+    res.render("list", { macAddresses: sortedItems });
   })
 })
 
