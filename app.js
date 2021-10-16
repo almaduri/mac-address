@@ -96,32 +96,37 @@ for(const mac of macList) {
 
 
 app.get('/', (req, res) => {
+
   Mac.find({}, (err, foundItems) => {
+    
     if(foundItems.length === 0) {
       Mac.insertMany(macResult, err => {
         if (err) {
           console.log(err);
         } else {
           console.log('Successfully saved default items to Database');
+          res.redirect('/');
         }
       })
+
+    } else {
+      const sortedItems = [...foundItems].sort((a, b) => {
+  
+        const macA = a.mac_address.toUpperCase(); // ignore upper and lowercase
+        const macB = b.mac_address.toUpperCase(); // ignore upper and lowercase
+  
+        if (macA < macB) {
+          return -1;
+        } else if (macA > macB) {
+          return 1;
+        }
+  
+        return 0;
+      })
+  
+      res.render("list", { macAddresses: sortedItems });
     }
 
-    const sortedItems = [...foundItems].sort((a, b) => {
-
-      const macA = a.mac_address.toUpperCase(); // ignore upper and lowercase
-      const macB = b.mac_address.toUpperCase(); // ignore upper and lowercase
-
-      if (macA < macB) {
-        return -1;
-      } else if (macA > macB) {
-        return 1;
-      }
-
-      return 0;
-    })
-
-    res.render("list", { macAddresses: sortedItems });
   })
 })
 
