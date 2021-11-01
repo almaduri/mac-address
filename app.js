@@ -79,7 +79,8 @@ const macList = [
   "20:3b:69:7a:42:bb",
   "18:02:ae:7b:db:bd",
   "6e:45:c0:69:ea:69",
-  "20:74:54:ba:56:8f"
+  "20:74:54:ba:56:8f",
+  "38:6a:77:b6:d7:0f"
 ]
 
 const macSchema = {
