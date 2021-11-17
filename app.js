@@ -83,7 +83,10 @@ const macList = [
   "38:6a:77:b6:d7:0f",
   "8c:aa:ce:1b:e9:06",
   "b4:cb:57:7c:02:eb",
-  "b4:a5:ac:cd:10:09"
+  "b4:a5:ac:cd:10:09",
+  "50:3c:ea:36:e0:67",
+  "20:3b:69:d0:b5:b9",
+  "7c:2a:db:9b:3a:08"
 ]
 
 const macSchema = {
